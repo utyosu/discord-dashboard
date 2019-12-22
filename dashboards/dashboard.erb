@@ -1,0 +1,20 @@
+<% content_for :title do %>イーズ ダッシュボード<% end %>
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="4" data-sizey="1">
+      <div data-id="monthlyactive" data-view="Number" data-suffix="人"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="4" data-sizey="1">
+      <div data-id="hourlyactive" data-view="Graph" data-graphtype="area" style="background-color:#b0b0ff; tick-color: #ff0000"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="records" data-view="List" data-unordered="true"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="kings" data-view="List" data-unordered="true" style="background-color:#ff8080"></div>
+    </li>
+  </ul>
+</div>
