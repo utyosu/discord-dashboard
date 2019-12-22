@@ -8,7 +8,6 @@ class Dashing.Graph extends Dashing.Widget
 
   ready: ->
     container = $(@node).parent()
-    # Gross hacks. Let's fix this.
     width = (Dashing.widget_base_dimensions[0] * container.data("sizex")) + Dashing.widget_margins[0] * 2 * (container.data("sizex") - 1)
     height = (Dashing.widget_base_dimensions[1] * container.data("sizey"))
     @graph = new Rickshaw.Graph(
@@ -18,12 +17,13 @@ class Dashing.Graph extends Dashing.Widget
       renderer: @get("graphtype")
       series: [
         {
-        color: "#fff",
-        data: [{x:0, y:0}]
+          color: "#3030b0",
+          data: [{x:0, y:0}]
         }
       ]
-      padding: {top: 0.02, left: 0.02, right: 0.02, bottom: 0.02}
     )
+
+    palette = new Rickshaw.Color.Palette( { scheme: 'spectrum2001' } )
 
     @graph.series[0].data = @get('points') if @get('points')
 
