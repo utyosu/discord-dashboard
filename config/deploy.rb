@@ -19,25 +19,25 @@ set :linked_dirs, fetch(:linked_dirs, []).push(
   'vendor/bundle',
 )
 
-namespace :dashing do
+namespace :smashing do
   task :start do
     on roles(:app) do
-      execute "cd #{release_path} && bundle exec dashing start -d"
+      execute "cd #{release_path} && bundle exec smashing start -d"
     end
   end
 
   task :stop do
     on roles(:app) do
-      execute "cd #{release_path} && bundle exec dashing stop"
+      execute "cd #{release_path} && bundle exec smashing stop"
     end
   end
 
   task :restart do
     on roles(:app) do
-      invoke 'dashing:stop'
-      invoke 'dashing:start'
+      invoke 'smashing:stop'
+      invoke 'smashing:start'
     end
   end
 end
 
-after 'deploy:publishing', 'dashing:restart'
+after 'deploy:publishing', 'smashing:restart'

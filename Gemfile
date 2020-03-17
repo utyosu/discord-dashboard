@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'dashing'
+gem 'smashing'
 gem 'execjs'
 gem 'therubyracer'
 gem 'http'
