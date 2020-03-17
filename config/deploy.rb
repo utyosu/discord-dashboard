@@ -22,13 +22,17 @@ set :linked_dirs, fetch(:linked_dirs, []).push(
 namespace :smashing do
   task :start do
     on roles(:app) do
-      execute "cd #{release_path} && bundle exec smashing start -d"
+      within release_path do
+        execute :bundle, :exec, :smashing, "start -d"
+      end
     end
   end
 
   task :stop do
     on roles(:app) do
-      execute "cd #{release_path} && bundle exec smashing stop"
+      within release_path do
+        execute :bundle, :exec, :smashing, "stop"
+      end
     end
   end
 
